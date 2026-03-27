@@ -1,0 +1,253 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: #1f2937;
+  background: #fff;
+  line-height: 1.6;
+}
+
+/* CONTAINER */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.container--narrow {
+  max-width: 780px;
+}
+
+/* HEADER */
+.header {
+  padding: 20px 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.logo-icon {
+  font-size: 1.5rem;
+}
+.logo-text {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+.logo-dot {
+  color: #7c3aed;
+}
+
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+  padding: 80px 0 70px;
+  text-align: center;
+}
+.badge {
+  display: inline-block;
+  background: #7c3aed;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 14px;
+  border-radius: 999px;
+  margin-bottom: 20px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: #4b5563;
+  max-width: 600px;
+  margin: 0 auto 36px;
+}
+.hero-note {
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+.hero-link {
+  color: #7c3aed;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.cta-link {
+  color: rgba(255,255,255,0.8);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* BOUTONS */
+.btn-primary {
+  display: inline-block;
+  background: linear-gradient(135deg, #7c3aed, #4f46e5);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 16px 32px;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: opacity 0.2s;
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.35);
+}
+.btn-primary:hover {
+  opacity: 0.9;
+}
+.btn-primary--large {
+  font-size: 1.05rem;
+  padding: 18px 36px;
+}
+
+/* MAIN */
+.main {
+  padding: 60px 0 80px;
+}
+
+/* SECTIONS */
+.section {
+  margin-bottom: 48px;
+}
+.section h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #ede9fe;
+}
+.section p {
+  color: #374151;
+  margin-bottom: 14px;
+  font-size: 1rem;
+}
+.section ul {
+  list-style: none;
+  margin: 16px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.section ul li {
+  padding: 10px 16px;
+  background: #f9fafb;
+  border-left: 3px solid #7c3aed;
+  border-radius: 0 8px 8px 0;
+  color: #374151;
+  font-size: 0.95rem;
+}
+
+/* CALLOUT */
+.callout {
+  background: #fef3c7;
+  border: 1px solid #fcd34d;
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-top: 16px;
+  font-size: 0.95rem;
+  color: #92400e;
+}
+
+/* LINK */
+.link {
+  color: #7c3aed;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.link:hover {
+  color: #5b21b6;
+}
+
+/* CTA SECTION */
+.cta-section {
+  margin-top: 60px;
+}
+.cta-box {
+  background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%);
+  border-radius: 20px;
+  padding: 48px 40px;
+  text-align: center;
+  color: #fff;
+}
+.cta-box h2 {
+  font-size: 1.7rem;
+  font-weight: 800;
+  margin-bottom: 14px;
+  border: none;
+  padding: 0;
+  color: #fff;
+}
+.cta-box p {
+  color: rgba(255,255,255,0.85);
+  max-width: 520px;
+  margin: 0 auto 24px;
+}
+.cta-features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 24px;
+  margin-bottom: 32px;
+}
+.cta-features span {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.9);
+}
+.cta-box .btn-primary {
+  background: #fff;
+  color: #7c3aed;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+}
+.cta-box .btn-primary:hover {
+  opacity: 0.95;
+}
+.cta-note {
+  margin-top: 14px;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.7);
+}
+
+/* FOOTER */
+.footer {
+  background: #f9fafb;
+  border-top: 1px solid #f3f4f6;
+  padding: 32px 0;
+  text-align: center;
+}
+.footer p {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-bottom: 6px;
+}
+.footer-copy {
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+/* RESPONSIVE */
+@media (max-width: 640px) {
+  .hero {
+    padding: 50px 0 50px;
+  }
+  .cta-box {
+    padding: 36px 24px;
+  }
+  .cta-features {
+    flex-direction: column;
+    align-items: center;
+  }
+}
