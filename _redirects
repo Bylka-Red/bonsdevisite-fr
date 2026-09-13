@@ -1,5 +1,5 @@
 # Redirections pour les autres extensions vers le .fr
-https://www.bonsdevisite.com/* https://www.bonsdevisite.fr/:splat 301!
-https://bonsdevisite.com/* https://www.bonsdevisite.fr/:splat 301!
-https://bonsdevisite.store/* https://www.bonsdevisite.fr/:splat 301!
-https://bonsdevisite.info/* https://www.bonsdevisite.fr/:splat 301!
+https://www.bonsdevisite.com/* https://bonsdevisite.fr/:splat 301!
+https://bonsdevisite.com/* https://bonsdevisite.fr/:splat 301!
+https://bonsdevisite.store/* https://bonsdevisite.fr/:splat 301!
+https://bonsdevisite.info/* https://bonsdevisite.fr/:splat 301!
