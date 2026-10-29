@@ -37,6 +37,13 @@ https://www.bonsdevisite.com/*  https://www.visito-immo.fr/logiciel-bon-de-visit
 https://bonsdevisite.store/*    https://www.visito-immo.fr/logiciel-bon-de-visite-immobilier 301!
 https://bonsdevisite.info/*     https://www.visito-immo.fr/logiciel-bon-de-visite-immobilier 301!
 
-# Filet de securite : tout chemin servi par ce projet, quel que soit le domaine
-# (y compris l'adresse .netlify.app), part vers la meme cible.
+# EXCEPTION, avant le filet : robots.txt doit rester LISIBLE.
+# Le filet `/*` ci-dessous capturait aussi /robots.txt et le redirigeait, donc
+# Google ne pouvait plus le lire du tout (constate en production le 29/10).
+# Les regles de Netlify s'appliquent dans l'ordre : cette ligne doit rester
+# AVANT le filet. Le 200 sert le fichier au lieu de rediriger.
+/robots.txt  /robots.txt  200
+
+# Filet de securite : tout autre chemin servi par ce projet, quel que soit le
+# domaine (y compris l'adresse .netlify.app), part vers la meme cible.
 /*  https://www.visito-immo.fr/logiciel-bon-de-visite-immobilier  301!
