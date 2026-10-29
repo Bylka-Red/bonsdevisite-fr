@@ -1,4 +1,13 @@
+# Satellite arrete le 29/10/2026 : tout le domaine redirige en 301 vers
+# https://www.visito-immo.fr/logiciel-bon-de-visite-immobilier (voir _redirects).
+#
+# Le crawl reste AUTORISE : c'est indispensable pour que Google decouvre les
+# redirections, transfere l'autorite du domaine vers la cible, puis retire
+# progressivement ces URLs de son index. Interdire le crawl ici bloquerait ce
+# transfert et laisserait les anciennes URLs indexees sans jamais les remplacer.
+#
+# Plus de ligne Sitemap : le sitemap declarait une page qui n'existe plus en
+# propre. La cible est declaree dans le sitemap de visito-immo.fr.
+
 User-agent: *
 Allow: /
-
-Sitemap: https://bonsdevisite.fr/sitemap.xml

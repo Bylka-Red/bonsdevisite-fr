@@ -1,5 +1,42 @@
-# Redirections pour les autres extensions vers le .fr
-https://www.bonsdevisite.com/* https://bonsdevisite.fr/:splat 301!
-https://bonsdevisite.com/* https://bonsdevisite.fr/:splat 301!
-https://bonsdevisite.store/* https://bonsdevisite.fr/:splat 301!
-https://bonsdevisite.info/* https://bonsdevisite.fr/:splat 301!
+# ─────────────────────────────────────────────────────────────────────────────
+# SATELLITE ARRETE — 29/10/2026, sur decision de l'utilisateur.
+#
+# POURQUOI : mesure GSC/GA4 du 29/10/2026.
+#   - 3 clics en 28 jours, contre 117 pour visito-immo.fr (2,5 % de l'ensemble)
+#   - 29 visites envoyees sur 90 jours, mais seulement 2 VISITEURS distincts
+#     (ce n'est pas du trafic : deux personnes en aller-retour)
+#   - sur les 4 requetes ou les deux sites apparaissaient ensemble, le site
+#     principal devancait le satellite de 13 a 15 places :
+#       "bon de visite immobilier"  -> principal pos 15,6 / satellite pos 28,6
+#       "bon de visite"             -> principal pos 17,9 / satellite pos 32,7
+#       "duree de validite..."      -> principal pos  5,2 / satellite pos 14,0
+#   Il n'y avait donc AUCUNE cannibalisation (hypothese testee et infirmee) :
+#   le satellite ne genait personne, il n'existait simplement plus pour Google.
+#
+# POURQUOI UNE 301 ET PAS UNE SUPPRESSION : la redirection permanente transfere
+# au site principal le peu d'autorite accumulee par le domaine et par ses liens
+# entrants, au lieu de la perdre. Les 9 liens sortants du satellite vers
+# visito-immo.fr deviennent inutiles : la cible les remplace.
+#
+# CIBLE : /logiciel-bon-de-visite-immobilier, et pas la page d'accueil.
+#   C'est la page qui porte l'intention d'achat (12,5 % de rebond, la meilleure
+#   du site), alors que l'accueil ne recoit que du trafic de marque
+#   (98 % des clics sur la requete "visito").
+#
+# Le terrain juridique que le satellite visait est deja mieux couvert par le
+# blog du principal : /blog/valeur-juridique-bon-de-visite,
+# /blog/duree-validite-bon-de-visite (pos 5,2), /blog/loi-hoguet-2026.
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Toutes les extensions du satellite -> la page produit du site principal.
+# `301!` force la redirection meme si un fichier existe encore dans ce depot.
+https://bonsdevisite.fr/*       https://www.visito-immo.fr/logiciel-bon-de-visite-immobilier 301!
+https://www.bonsdevisite.fr/*   https://www.visito-immo.fr/logiciel-bon-de-visite-immobilier 301!
+https://bonsdevisite.com/*      https://www.visito-immo.fr/logiciel-bon-de-visite-immobilier 301!
+https://www.bonsdevisite.com/*  https://www.visito-immo.fr/logiciel-bon-de-visite-immobilier 301!
+https://bonsdevisite.store/*    https://www.visito-immo.fr/logiciel-bon-de-visite-immobilier 301!
+https://bonsdevisite.info/*     https://www.visito-immo.fr/logiciel-bon-de-visite-immobilier 301!
+
+# Filet de securite : tout chemin servi par ce projet, quel que soit le domaine
+# (y compris l'adresse .netlify.app), part vers la meme cible.
+/*  https://www.visito-immo.fr/logiciel-bon-de-visite-immobilier  301!
