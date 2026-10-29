@@ -15,35 +15,25 @@
 #
 # POURQUOI UNE 301 ET PAS UNE SUPPRESSION : la redirection permanente transfere
 # au site principal le peu d'autorite accumulee par le domaine et par ses liens
-# entrants, au lieu de la perdre. Les 9 liens sortants du satellite vers
-# visito-immo.fr deviennent inutiles : la cible les remplace.
+# entrants, au lieu de la perdre.
 #
 # CIBLE : /logiciel-bon-de-visite-immobilier, et pas la page d'accueil.
 #   C'est la page qui porte l'intention d'achat (12,5 % de rebond, la meilleure
 #   du site), alors que l'accueil ne recoit que du trafic de marque
 #   (98 % des clics sur la requete "visito").
-#
-# Le terrain juridique que le satellite visait est deja mieux couvert par le
-# blog du principal : /blog/valeur-juridique-bon-de-visite,
-# /blog/duree-validite-bon-de-visite (pos 5,2), /blog/loi-hoguet-2026.
 # ─────────────────────────────────────────────────────────────────────────────
 
-# Toutes les extensions du satellite -> la page produit du site principal.
-# `301!` force la redirection meme si un fichier existe encore dans ce depot.
-https://bonsdevisite.fr/*       https://www.visito-immo.fr/logiciel-bon-de-visite-immobilier 301!
-https://www.bonsdevisite.fr/*   https://www.visito-immo.fr/logiciel-bon-de-visite-immobilier 301!
-https://bonsdevisite.com/*      https://www.visito-immo.fr/logiciel-bon-de-visite-immobilier 301!
-https://www.bonsdevisite.com/*  https://www.visito-immo.fr/logiciel-bon-de-visite-immobilier 301!
-https://bonsdevisite.store/*    https://www.visito-immo.fr/logiciel-bon-de-visite-immobilier 301!
-https://bonsdevisite.info/*     https://www.visito-immo.fr/logiciel-bon-de-visite-immobilier 301!
-
-# EXCEPTION, avant le filet : robots.txt doit rester LISIBLE.
-# Le filet `/*` ci-dessous capturait aussi /robots.txt et le redirigeait, donc
-# Google ne pouvait plus le lire du tout (constate en production le 29/10).
-# Les regles de Netlify s'appliquent dans l'ordre : cette ligne doit rester
-# AVANT le filet. Le 200 sert le fichier au lieu de rediriger.
-/robots.txt  /robots.txt  200
-
-# Filet de securite : tout autre chemin servi par ce projet, quel que soit le
-# domaine (y compris l'adresse .netlify.app), part vers la meme cible.
-/*  https://www.visito-immo.fr/logiciel-bon-de-visite-immobilier  301!
+# Tout le trafic de ce projet part vers la page produit du site principal.
+# Cette unique regle couvre les 4 extensions (.fr .com .store .info, avec et
+# sans www) ET l'adresse .netlify.app : toutes sont servies par ce meme projet,
+# donc toutes passent par ici. Les regles par domaine seraient redondantes.
+#
+# ⚠️ PAS de `!` — c'est la subtilite, verifiee en production le 29/10 :
+#   - avec `301!`, Netlify force la redirection MEME quand le fichier existe.
+#     Le filet capturait alors /robots.txt, que Google ne pouvait plus lire —
+#     ce qui bloquait justement la decouverte des 301 et le transfert
+#     d'autorite vers la cible.
+#   - sans `!`, un fichier reellement present dans le depot est servi tel quel.
+#     Ici, seul robots.txt reste (index.html mis a part) : il est donc servi en
+#     200, et absolument tout le reste part en 301.
+/*  https://www.visito-immo.fr/logiciel-bon-de-visite-immobilier  301
